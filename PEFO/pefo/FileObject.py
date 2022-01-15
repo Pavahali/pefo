@@ -3,7 +3,7 @@ from .Encryptor import Encryptor
 
 
 class FileObject:
-    def __init__(self, filename, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None, method=None, password=None):
+    def __init__(self, filename: str, mode: str = 'r', buffering: int = -1, encoding: str = None, errors: string = None, newline: str = None, closefd: bool = True, opener = None, method: str = None, password: str = None):
         if not password and method:
             raise NoKeyError("You should provide key")
         elif password and not method:

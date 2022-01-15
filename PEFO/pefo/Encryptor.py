@@ -6,7 +6,7 @@ import base64
 import os
 
 class Encryptor:
-    def __init__(self, password, method):
+    def __init__(self, password: str, method: str):
         self.methods = { # other methods will be there soon
             "fernet": [self._fernet_encrypt, self._fernet_decrypt]
             }
