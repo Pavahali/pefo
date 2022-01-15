@@ -5,7 +5,7 @@ PEFO (Pavahali's Encrypted File Opener) is an easier way to work with encrypted 
 This is just a wrapper for built-in function which uses [cryptography](https://pypi.org/project/cryptography/) lib for encryption
 
 ## Latest release
-Project now in beta so I don't recommend you to use it now. It's stable but not all features are supported. But if you already made your decision here is a link for you: https://github.com/Pavahali/pefo/releases/latest/
+Project now in alpha so I don't recommend you to use it now. It's stable but not all features are supported. But if you already made your decision here is a link for you: https://github.com/Pavahali/pefo/releases/latest/
 
 ## Todo
 * Add other encryption algorithms (AES, Camellia, etc.)
