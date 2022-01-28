@@ -22,7 +22,7 @@ pip install .
 ```
 
 ## Quickstart
-> How to encrypt data
+> How to encrypt data?
 ```py
 from pefo import open
 
