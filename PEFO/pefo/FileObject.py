@@ -1,7 +1,6 @@
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
 from cryptography.fernet import Fernet
-from .Errors import *
 import base64
 
 
@@ -104,6 +103,12 @@ class FileObject:
 
 
 # All Errors
+class InvalidToken(Exception):
+    """
+    If either key or password user provided does not match
+    """
+    pass
+
 class NonsenceError(Exception):
     """
     If action makes no sence (with encrypted data)
