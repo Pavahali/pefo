@@ -1,43 +1,52 @@
 ## About
-PEFO (Pavahali's Encrypted File Opener) is an easier way to work with encrypted files in python.
+PEFO (Pavahali's Encrypted File Opener) is an easier way to work with encrypted files
 
-## How does it work?
-This is just a wrapper for built-in function which uses [cryptography](https://pypi.org/project/cryptography/) lib for encryption
+## How it works?
+This is just a wrapper for built-in function which uses fernet from [cryptography](https://pypi.org/project/cryptography/) lib
 
 ## Latest release
-Project now in alpha so I don't recommend you to use it now. It's stable but not all features are supported. But if you already made your decision here is a link for you: https://github.com/Pavahali/pefo/releases/latest/
+Project now in beta. It's stable but not all features are supported. If you already made your decision install [latest release](https://github.com/Pavahali/pefo/releases/latest/) or directly from this repo
 
 ## Todo
-* Add other encryption algorithms (AES, Camellia, etc.)
 * Add support for unsupported methods
-
 ---
 ## Install
-Get one of [pefo releases](https://github.com/Pavahali/pefo/releases) (either .whl or .tar.gz archive) and use pip to install it:
+
+1. Clone repo and go to its directory
 ```
-pip install file
+git clone https://github.com/Pavahali/pefo/
+```
+2. Install repo using pip
+```
+pip install .
 ```
 
 ## Quickstart
-Encrypt data with fernet
+> How to encrypt data
 ```py
 from pefo import open
 
-with open('test.file', 'wb', method='fernet', password='pass') as f:
+with open('test.file', 'wb', password='pass') as f:
     f.write(b'Encrypted data 0_0')
 ```
 
-Read encrypted data with fernet
-
+> How to read encrypted data?
 ```py
 from pefo import open
 
-with open('test.file', 'rb', method='fernet', password='pass') as f:
+with open('test.file', 'rb', password='pass') as f:
     f.read()
 ```
 
-Just read normal file
+> I already have key. How to use it instead of password?
+```py
+from pefo import open
 
+with open('test.file', 'rb', key='your key') as f:
+    f.read()
+```
+
+> Ok, but I want to use it without encryption. How I can do this?
 ```py
 from pefo import open
 
@@ -46,19 +55,10 @@ with open('test.file', 'r') as f:
 ```
 
 ## Errors
-`InvalidMethodError` - method you provided does not exist or not supported
-
 `MustBeBytesError` - you should open encrypted file in binary mode
 
 `MustBeByteLikeError` - you should write data in bytes
 
-`NoPassError` - if you provided method you must give password
+`NonsenceError` - action can't be done with encrypted data (actually can, but it makes no sence)
 
-`NoMethodError` - if you provided password you must give method
-
-`NoSenceError` - action can't be done with encrypted data (actually can, but it makes no sence)
-
----
-
-## Else
-My [discord server](https://discord.gg/SuzJ7UamMG) where you can get help with this library
+`TooManyArgs` - you can not use both key and password. Use one of them
